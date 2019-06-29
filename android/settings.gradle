@@ -1,0 +1,3 @@
+rootProject.name = 'federalismApp'
+
+include ':app'
