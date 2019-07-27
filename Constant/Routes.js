@@ -1,3 +1,3 @@
-export default class Routes {
-
+export default class Routes{
+    
 }

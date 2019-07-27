@@ -17,7 +17,6 @@ export default createBottomTabNavigator(
     {
         Home: HomeStack,
         Profile: ProfileStack,
-
     }, {
         defaultNavigationOptions: ({ navigation }) => ({
             tabBarIcon: ({ focused, horizontal, tintColor }) => {

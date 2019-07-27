@@ -4,9 +4,13 @@ import MainTabNavigator from './MainTabNavigator';
 
 const LoginStack = createStackNavigator({
   LoginScreen: LoginScreen,
+},{
+  initialRouteName: 'LoginScreen'
 })
 
 export default createAppContainer(createSwitchNavigator({
   Login: LoginStack,
   Main: MainTabNavigator,
+},{
+  initialRouteName: 'Main'
 }));
