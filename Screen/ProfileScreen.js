@@ -9,9 +9,7 @@ class ProfileScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = { currentTab: 0, labelSwitch: 'Switch 0' };
-
     }
-
     componentDidMount = () => {
 
     }
@@ -21,12 +19,6 @@ class ProfileScreen extends React.Component {
 
         };
     }
-
-    onSwitch = () => {
-        this.props.navigation.navigate((this.state.labelSwitch == 'Switch 0' ? 'Sample' : 'Main'));
-        this.state.labelSwitch == 'Switch 0' ? this.setState({labelSwitch:'Switch 1'}) : this.setState({labelSwitch : 'Switch 0'})
-    }
-
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -36,8 +28,6 @@ class ProfileScreen extends React.Component {
                         <Tab heading={<View style={{ backgroundColor: this.state.currentTab == 0 ? '#00FF42' : 'white' }}>
                             <Text style={{ color: this.state.currentTab == 0 ? 'white' : 'black' }}>Login</Text>
                         </View>}>
-                            <PrimaryButton label={this.state.labelSwitch} onPress={this.onSwitch} />
-
                             <Login label={this.state.labelSwitch} onPress={() => this.onSwitch} navigation={this.props.navigation} />
                         </Tab>
                         <Tab heading={<View style={{ backgroundColor: this.state.currentTab == 1 ? '#00FF42' : 'white' }}>

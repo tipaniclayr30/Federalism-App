@@ -12,7 +12,6 @@ const LoginStack = createStackNavigator({
 export default createAppContainer(createSwitchNavigator({
   Login: LoginStack,
   Main: MainTabNavigator,
-  Sample: SampleTabNavigator,
 },{
   initialRouteName: 'Main'
 }));
