@@ -4,5 +4,6 @@ const BASE_URL = 'https://federalism-app.000webhostapp.com/';
 
 export default {
     LOGIN_URL: `${BASE_URL}fetchAccount.php`,
+    SIGNUP_URL: `${BASE_URL}postSignUp.php`,
      
 }
