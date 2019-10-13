@@ -6,7 +6,9 @@ export const Input = (prop) => {
         <TextInput
         placeholder={prop.placeholder}
         secureTextEntry= {prop.secureTextEntry}
-        style={styles.inputStyle}/>
+        style={styles.inputStyle}
+        value={prop.value}
+        onChangeText={prop.onChangeText}/>
     );
 }
 

@@ -1,14 +1,17 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TextInput,Alert } from 'react-native';
+import { View, Text,ActivityIndicator, Image, StyleSheet, TextInput, Alert } from 'react-native';
 import { Tab, Tabs } from 'native-base';
 import { PrimaryButton, TextButton } from '../Components/Buttons';
 import { Input } from '../Components/Inputs';
-
+import { fetchLogin } from '../Fetchs/fetchLogin'
 
 class ProfileScreen extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { currentTab: 0, labelSwitch: 'Switch 0' };
+        this.state = {
+            currentTab: 0,
+            labelSwitch: 'Switch 0',
+        };
     }
     componentDidMount = () => {
 
@@ -43,13 +46,41 @@ class ProfileScreen extends React.Component {
 }
 
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            isLoading: false
+        };
+    }
+    onPressLogin() {
+        this.setState({ isLoading: true })
+        fetchLogin(this.state.username, this.state.password).then(response => {
+            //response == 'true'?alert('Success'):alert('Failed')
+            this.setState({ isLoading: false })
+            alert(response)
+        }
+        );
+    }
     render() {
         const { onSwitch, label } = this.props;
+        if (this.state.isLoading == true) {
+            return(
+            <ActivityIndicator size="large" color="#0000ff" />
+            )
+        }
         return (
             <View style={styles.mainTabContainer}>
-                <Input placeholder='Email' secureTextEntry={false} />
-                <Input placeholder='Password' secureTextEntry={true} />
-                <PrimaryButton label={label} onPress={() => onSwitch} />
+                <Input placeholder='Email' secureTextEntry={false}
+                    onChangeText={username => this.setState({ username })}
+                    value={this.state.username}
+                />
+                <Input placeholder='Password' secureTextEntry={true}
+                    onChangeText={password => this.setState({ password })}
+                    value={this.state.password}
+                />
+                <PrimaryButton label={'Login'} onPress={() => this.onPressLogin()} />
                 <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                     <Text>Don't have an account?  </Text>
                     <TextButton label={'Sign up'} />
