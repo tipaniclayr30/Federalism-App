@@ -25,7 +25,6 @@ class AboutScreen extends React.Component {
                         <Text style={{color: 'black'}}>Kilusan ng mga kabataan</Text>
                         <Text style={{color: 'black'}} >para sa Pagbabago</Text>
                     </View>
-                    
                 </View>
 
                 <View style={styles.secondContainer}>
